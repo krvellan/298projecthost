@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Computer Vision Anamoly Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Computer Vision Anamoly Detection</h1>
+    <form action="#" method="post" enctype="multipart/form-data">
+        <label for="menu1">Select Location:</label>
+        <select id="menu1" name="menu1">
+            <option value="1">Library</option>
+            <option value="2">Campus</option>
+        </select>
+        <br><br>
+        <label for="menu2">Select Method:</label>
+        <select id="menu2" name="menu2">
+            <option value="1">Audio Only</option>
+            <option value="2">Video Only</option>
+            <option value="3">Both Audio and Video</option>
+        </select>
+        <br><br>
+        <label for="text-input">Enter start time:</label>
+        <input type="text" id="text-input" name="text-input" placeholder="Type here...">
+        <br><br>
+        <label for="file-upload" class="upload-button">Choose File</label>
+        <br>
+        <input type="file" id="file-upload" name="file-upload" style="display:none;">
+        <span class="upload-file">No file chosen</span>
+        <br>
+        <button type="button" onclick="redirectToPage()">Go</button>
+    </form>
+    <script>
+        document.getElementById('file-upload').onchange = function () {
+            document.querySelector('.upload-file').textContent = this.files[0].name;
+        };
+        function redirectToPage() {
+            var menu1 = document.getElementById("menu1").value;
+            var menu2 = document.getElementById("menu2").value;
+
+            if (menu1 && menu2) {
+                var url = "page" + menu1 + menu2 + ".html";
+                window.location.href = url;
+            }
+        }
+    </script>
+</div>
+</body>
+</html>
